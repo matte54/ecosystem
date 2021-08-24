@@ -1,13 +1,6 @@
 import random
 import numpy as np
 
-def display_cave(matrix):
-    for i in range(matrix.shape[0]):
-        for j in range(matrix.shape[1]):
-            char = "#" if matrix[i][j] == WALL else "."
-            print(char, end='')
-        print()
-
 def generatenoise():
     # the cave should be 42x42
     shape = (80,100)
