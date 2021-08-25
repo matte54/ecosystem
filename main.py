@@ -14,7 +14,7 @@ pygame.display.set_caption("Ecosystem")
 WIN = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
 FPS = 30
 
-class Animal():
+class Animal(pygame.sprite.Sprite):
     def __init__(self):
         self.moveSpeed = 0.5
         self.awareness = 0.4
@@ -35,11 +35,19 @@ class Animal():
             self.animal_surface = pygame.image.load('./assets/bunnyfemale.png').convert_alpha()
         print(f'created animal {i} {self.name}')
 
-        randomWidth = random.randint(0, 1020)
-        randomHeight = random.randint(0, 820)
+        self.randomWidth = random.randint(0, 1020)
+        self.randomHeight = random.randint(0, 820)
         self.animal_surface = pygame.transform.scale(self.animal_surface, (20, 20))
-        self.animal_rect = self.animal_surface.get_rect(center = (randomWidth, randomHeight))
+        self.animal_rect = self.animal_surface.get_rect(center = (self.randomWidth, self.randomHeight))
         WIN.blit(self.animal_surface, (self.animal_rect))
+        self.x = self.randomWidth
+        self.y = self.randomHeight
+
+    def move(self):
+        self.x += 5
+        WIN.blit(self.animal_surface, (self.x, self.y))
+
+
 
 
 
@@ -52,11 +60,13 @@ def main():
     clock = pygame.time.Clock()
     run = True
     spawnBackground()
+    animal_list = []
     while run:
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONUP:
                 x = Animal()
+                animal_list.append(x)
 
 
 
@@ -65,7 +75,8 @@ def main():
                 pygame.quit()
                 exit()
 
-
+        for i in animal_list:
+            i.move()
         pygame.display.update()
 
 if __name__ == "__main__":
