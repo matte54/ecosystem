@@ -3,7 +3,7 @@ import random
 import sys
 import string
 import numpy as np
-from system import Animal
+# from system import Animal
 
 #resolution constants
 WINDOWWIDTH = 1020
@@ -35,8 +35,8 @@ class Animal(pygame.sprite.Sprite):
             self.animal_surface = pygame.image.load('./assets/bunnyfemale.png').convert_alpha()
         print(f'created animal {i} {self.name}')
 
-        self.randomWidth = random.randint(0, 1020)
-        self.randomHeight = random.randint(0, 820)
+        self.randomWidth = random.randint(0, 1020 - 40)
+        self.randomHeight = random.randint(0, 820 - 40)
         self.animal_surface = pygame.transform.scale(self.animal_surface, (20, 20))
         self.animal_rect = self.animal_surface.get_rect(center = (self.randomWidth, self.randomHeight))
         WIN.blit(self.animal_surface, (self.animal_rect))
@@ -62,6 +62,7 @@ def main():
     spawnBackground()
     animal_list = []
     while run:
+        WIN.fill((0, 250, 0))
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONUP:
@@ -77,7 +78,7 @@ def main():
 
         for i in animal_list:
             i.move()
-        pygame.display.update()
+        pygame.display.flip() # updates the screen
 
 if __name__ == "__main__":
     main()
