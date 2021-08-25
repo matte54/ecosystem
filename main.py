@@ -38,7 +38,7 @@ class Animal():
         randomWidth = random.randint(0, 1020)
         randomHeight = random.randint(0, 820)
         self.animal_surface = pygame.transform.scale(self.animal_surface, (20, 20))
-        self.animal_rect = self.animal_surface.get_rect(topleft = (randomWidth, randomHeight))
+        self.animal_rect = self.animal_surface.get_rect(center = (randomWidth, randomHeight))
         WIN.blit(self.animal_surface, (self.animal_rect))
 
 
