@@ -1,0 +1,26 @@
+### Next ###
+Create a awareness circle around each bunny that can detect when either food or other animals are in range.
+There is a built in system for it just have to figure it out.
+
+
+
+
+
+
+### Plans ###
+-   Have animals refill their hunger number by eating the plants that grow back after x?
+    roam randomly and when food is in their awareness circle they will go for it if they are 50% hungry?
+
+-   Reproduce with awareness circle by urge witch increases by maturity
+    spawn 1-3 new animals after pregnancy cycle complete
+    Female rejection depending on traits?
+    (future give animals traits and have either parent pass down something +/- depending on their own?)
+
+
+-   Lifespan after maturity is maxed health will decline eventually death ?
+
+-   Make the noise map work to add water/rivers etc for water source and add in water need?
+
+-   Introduce a predator? Hunts animals (gets tired after a bit of hunting)
+    Eats x animals / time ?
+    Animal awareness = run away from predator? genes?
