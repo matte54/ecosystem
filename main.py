@@ -65,7 +65,7 @@ class Animal():
             self.dy = random.randint(0, 2) - 1
             #print(f'{self.name} changing dir x:{self.dx} y:{self.dy}')
         #check out of bounds
-        if self.x > self.WINDOWWIDTH - 5:
+        if self.x > self.WINDOWWIDTH - 20:
             self.rtime = 60
             self.dx = -2
         if self.x < 0 + 5:
@@ -97,8 +97,6 @@ def spawnFood(number):
         x = random.randint(0, WINDOWWIDTH)
         y = random.randint(0, WINDOWHEIGHT)
         foodX = WIN.blit(food, (x, y))
-        print(foodX)
-        print(type(foodX))
         currentFood.append(foodX)
     pygame.display.update()
     return(currentFood)
