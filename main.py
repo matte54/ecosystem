@@ -87,30 +87,26 @@ class Animal():
             self.animal_surface = pygame.transform.flip(self.animal_surface, True, False)
             self.spriteFlipped = True
 
-def spawnFood(number):
-    FOOD_IMG = pygame.image.load("./assets/tree.png")
-    currentFood = []
-    for i in range(number):
-        scale = random.randint(5, 15)
-        rotation = random.randint(0, 360)
-        food = pygame.transform.rotate(pygame.transform.scale(FOOD_IMG, (scale, scale)), rotation)
-        x = random.randint(0, WINDOWWIDTH)
-        y = random.randint(0, WINDOWHEIGHT)
-        foodX = WIN.blit(food, (x, y))
-        currentFood.append(foodX)
-    pygame.display.update()
-    return(currentFood)
+class food():
+    def __init__(self):
+        self.sprite = pygame.image.load("./assets/tree.png")
+        self.scale = random.randint(5, 15)
+        self.rotation = random.randint(0, 360)
+        self.f = pygame.transform.rotate(pygame.transform.scale(self.sprite, (self.scale, self.scale)), self.rotation)
+        self.x = random.randint((0 + 20), (WINDOWWIDTH - 20))
+        self.y = random.randint((0 + 20), (WINDOWHEIGHT - 20))
 
-def spawnBackground():
-    WIN.fill((0, 250, 0))
-    pygame.display.update()
+    def tick(self):
+        WIN.blit(self.f, (self.x, self.y))
 
 def main():
     clock = pygame.time.Clock()
     run = True
-    spawnBackground()
-    foodList = spawnFood(30)
     animal_list = []
+    food_list = []
+    for i in range(50):
+        f = food()
+        food_list.append(f)
     for i in range(50):
         x = Animal()
         animal_list.append(x)
@@ -131,6 +127,10 @@ def main():
 
         for i in animal_list:
             i.moveTick()
+
+        for i in food_list:
+            i.tick()
+
         pygame.display.flip() # updates the screen
 
 if __name__ == "__main__":
