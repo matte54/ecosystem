@@ -1,6 +1,6 @@
 __pycache__/
-dump.py
-test.py
-noisemaps.py
+/dump.py
+/test.py
+/noisemaps.py
 venv/
 
