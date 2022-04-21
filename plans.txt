@@ -1,6 +1,6 @@
 ### Next ###
-Create a awareness circle around each bunny that can detect when either food or other animals are in range.
-There is a built in system for it just have to figure it out.
+Create a animal brain to evalute the next thing move, stand still , go for food, reproduce
+Collision and hunting for food?
 
 
 
